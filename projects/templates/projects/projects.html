@@ -1,31 +1,30 @@
-
-
 {% extends "main.html" %}
 
 {% block content %}
 
-<h1>Project Template</h1>
-<h2>Hello you are on the {{page}} page</h2>
+<h1>Projects </h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Project</th>
+        <th>Created At</th>
+        <th>Votes</th>
+        <th>Ratio</th>
+        <th></th>
+    </tr>
+    {% for i in projects %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.title}}</td>
+        <td>{{ i.created_at }}</td>
+        <td>{{ i.vote_total }}</td>
+        <td>{{ i.vote_ratio }}%</td>
+        <td><a href="{% url 'project' i.id %}">View</a></td>
 
 
-{% if number > 10 %}
-    <p>There are more than 10 projects.</p>
-{% else %}
-    <p>There are 10 or fewer projects.</p>
-{% endif %}
-
-<hr>
-
-<h2>Project List</h2>
-<ul>
-    {% for i in projectList %}
-        <li>
-            Name: <a href="{% url 'project' i.id %}">{{ i.title }}</a> ----
-            Description: {{ i.description }}
-        </li>
+    </tr>
     {% endfor %}
-</ul>
+</table>
 
 
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 {% endblock content %}
