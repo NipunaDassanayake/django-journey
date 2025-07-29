@@ -1,24 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Project
+from .forms import ProjectForm
 
-projectList = [
-    {
-        'id': '1',
-        'title': 'Ecommerce Website',
-        'description': 'This is the first project',
-    },
-    {'id': '2',
-     'title': 'Cloud Infrastructure',
-     'description': 'This is the second project',
-     },
-    {
-        'id': '3',
-        'title': 'Machine Learning Model',
-        'description': 'This is the third project',
-    },
 
-]
+
+
+
 
 
 # def projects(request):
@@ -40,3 +28,8 @@ def projects(request):
 def project(request, pk):
     projectObj = Project.objects.get(id=pk)  # Fetch the project by its primary key (UUID)
     return render(request, 'projects/single-project.html', {'projectObj': projectObj })
+
+def createProject(request):
+    form = ProjectForm()
+    context = {'form': form}
+    return render(request, 'projects/project_form.html',context)
