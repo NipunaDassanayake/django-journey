@@ -5,6 +5,8 @@
 
 
 <h1>{{projectObj.title}}</h1>
+<img src="{{projectObj.featured_image.url}}" alt="Project Image" style="width: 300px; height: 200px;">
+
 
 <hr>
 {% for tag in projectObj.tags.all %}
@@ -14,6 +16,7 @@
 <hr>
 <br>
 <h2>{{projectObj.description}}</h2>
+<br>
 
 
 {% endblock content %}

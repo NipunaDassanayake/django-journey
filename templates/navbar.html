@@ -1,5 +1,7 @@
-<h1>Logo</h1>
-<a href = "{% url 'create-project' %}">Create Project</a>
+{% load static %}
+
+<img src="{% static 'images/logo.svg' %}" alt="Logo" style="width: 100px; height: auto;">
+<a href="{% url 'create-project' %}">Create Project</a>
 
 <hr>
 <nav>

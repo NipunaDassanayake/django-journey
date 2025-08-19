@@ -17,8 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('projects.urls')),  # Include the projects app URLs
 ]
+
+# Serve media files during development
+# if settings.DEBUG:  # Uncomment this line if you want to serve media files in development
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # Serve static files during development

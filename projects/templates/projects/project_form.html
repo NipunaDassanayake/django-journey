@@ -1,11 +1,14 @@
-{%extends "main.html" %}
+{% extends "main.html" %}
 
 {% block content %}
 
 <h1>Project Form</h1>
 
-<form method="POST" >
+<form method="POST" enctype="multipart/form-data"> # This line is important for file uploads
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit">
+    {{ form.as_p }}
+    <input type="submit" value="Submit Project">
+
+</form>
+
 {% endblock content %}

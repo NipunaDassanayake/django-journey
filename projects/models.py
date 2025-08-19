@@ -9,6 +9,7 @@ class Project(models.Model):
     description = models.TextField(blank=True, null=True)
     demo_link = models.CharField(max_length=2000, blank=True, null=True)
     source_link = models.CharField(max_length=2000, blank=True, null=True)
+    featured_image = models.ImageField(default='default.svg', null=True, blank=True)  # Default image if none is provided
     tags = models.ManyToManyField('Tag', blank=True, related_name='projects')  # Many-to-many relationship with Tag model
     vote_total = models.IntegerField(default=0)  # Total votes for the project
     vote_ratio = models.IntegerField(default=0)  # Ratio of upvotes to downvotes
